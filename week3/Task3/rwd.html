@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="rwd.css" />
+   
+</head>
+
+<body>
+    <div class="header">
+        <div class="left">My Website</div>
+        <div class="right">
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+            <div class="item">Item 4</div>
+            <div class="imp"><img src="menu_icon.png"></div>
+        </div>
+    </div>
+    <div class="Welcome">
+        <div class="text">Welcome to MyHome</div>
+    </div>
+    <div class="in">
+        <div class="content">
+            <div class="top">
+
+            </div>
+            <div class="bottom">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        // debugger
+        document.addEventListener("DOMContentLoaded", function () {
+            //用 JavaScript fetch 連線，取得景點資料
+            fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json")
+                .then(function (response) {
+                    console.log(response);
+                    return response.json();
+                    // console.log(json);
+                })
+                .then(function (data) {
+                    console.log(data);
+                    const topAttractions = data.result.results.slice(0, 3);
+                    const bottomAttractions = data.result.results.slice(3, 15);
+                    for (let i = 0; i < topAttractions.length; i++) {
+                        const attraction = topAttractions[i];
+                        const Image = attraction.file.split("https:")[1];
+                        const ImageUrl = "https:" + Image
+                        console.log(ImageUrl);
+
+                        const imgElement = document.createElement("div");
+                        imgElement.classList.add("tip");
+                        imgElement.style.backgroundImage = `url(${ImageUrl})`;
+                        imgElement.style.backgroundSize = "cover";
+
+                        const nameElement = document.createElement("div");
+                        nameElement.textContent = attraction.stitle;
+                        nameElement.classList.add("tiw")
+
+                        
+
+                        const topitemElement = document.createElement("div");
+                        topitemElement.classList.add("topitem");
+
+                        const topContainer = document.querySelector(".top");
+
+                        topContainer.appendChild(topitemElement);
+
+                        topitemElement.appendChild(imgElement);
+                        topitemElement.appendChild(nameElement);
+
+                    }
+                    for (let i = 0; i < bottomAttractions.length; i++) {
+                        const attraction = bottomAttractions[i];
+                        const Image = attraction.file.split("https:")[1];
+                        const ImageUrl = "https:" + Image
+                        console.log(ImageUrl);
+
+                        const imgElement = document.createElement("div");
+                        imgElement.classList.add("bip");
+                        imgElement.style.backgroundImage = `url(${ImageUrl})`;
+                        imgElement.style.backgroundSize = "cover";
+
+                        const nameElement = document.createElement("div");
+                        // nameElement.textContent = attraction.stitle;
+                        nameElement.classList.add("biw")
+
+                        const nametextElement = document.createElement("p")
+                        nametextElement.textContent = attraction.stitle;
+                        nametextElement.classList.add("pcss")
+
+                        const bottomitemElement = document.createElement("div");
+                        bottomitemElement.classList.add("boitem");
+
+                        const bottomContainer = document.querySelector(".bottom");
+
+                        bottomContainer.appendChild(bottomitemElement);
+
+                        bottomitemElement.appendChild(imgElement);
+                        bottomitemElement.appendChild(nameElement);
+                        nameElement.appendChild(nametextElement);
+
+                    }
+                })
+
+        });
+
+    </script>
+</body>
+
+</html>
