@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/Public/css/index.css" rel="stylesheet">
+
+  <title>歡迎光臨</title>
+</head>
+
+<body>
+  <div class="box">
+    <div class="main">
+      <div class="title">
+        <h2>歡迎光臨，請輸入帳號密碼</h2>
+      </div>
+
+      <div class="login">
+        <h3>登入系統</h3>
+        <form action="/signin" method="post" class="form">
+
+          <div class="username">
+            <label for="username">帳號</label>
+            <input type="text" id="username" name="username" />
+          </div>
+
+          <div class="password">
+            <label for="password">密碼</label>
+            <input type="password" name="password" id="password" />
+          </div>
+
+          <div class="agree_terms">
+            <label for="contract">同意條款</label>
+            <input type="checkbox" name="contract" id="checkbox" />
+          </div>
+
+          <button class="button" role="button" id="submit">
+            <span class="text">登入</span>
+          </button>
+
+        </form>
+      </div>
+      <hr/>
+      <div class="calculator">
+        <h3>計算正整數的平方</h3>
+        <form action="/sq" id="square" novalidate class="form">
+          <label for="number">正整數
+          <input type="text" name="number" id="number" />
+          </label>
+          <button id="number_button">計算</button>
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+  <script>
+    debugger;
+    const checkbox = document.querySelector("#checkbox");
+    const sub_btn = document.querySelector("#submit");
+    const number = document.querySelector("#number");
+    const number_button = document.querySelector("#number_button");
+
+    sub_btn.addEventListener("click", function (checkCheckbox) {
+
+      if (!checkbox.checked) {
+        alert("Please check the checkbox first");
+        event.preventDefault();
+        return false; // 阻止表單提交
+      }
+      return true; // 允許表單提交
+    });
+
+    number_button.addEventListener("click", function (event) {
+        const inputValue = parseInt(number.value);
+
+        if (isNaN(inputValue) || inputValue <= 0) {
+            event.preventDefault();
+            alert("Please enter a positive number");
+        }
+        
+    });
+  </script>
+</body>
+
+</html>

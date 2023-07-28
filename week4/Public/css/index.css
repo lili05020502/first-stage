@@ -1,0 +1,70 @@
+body {
+  margin: 0%;
+  /* padding:0% ; */
+  /* border: 1px solid green; */
+}
+
+.box {
+  margin: 0%;
+  margin: 0px;
+  /* border: 1px solid red; */
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid palevioletred; */
+  flex-direction: column;
+}
+
+.title {
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid blue; */
+  width: 100%;
+  text-align: center;
+  background-color: rgb(18, 47, 72);
+  color: white;
+}
+
+.login {
+  /* border: 1px solid yellow; */
+  text-align: center;
+  width: 450px;
+}
+
+
+
+.password {
+  margin-top: 10px;
+}
+
+.agree_terms {
+  margin-top: 10px;
+}
+
+.button {
+  margin-top: 10px;
+}
+
+.calculator {
+  border-top: 1px solid rgb(189, 189, 189);
+  text-align: center;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} */
+#number_button{
+  margin-top: 10px;
+}
