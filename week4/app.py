@@ -52,17 +52,24 @@ def signout():
 
 #---------------------------------------------------------------
 
-@app.route("/sq/")
-def handle():
-    number=request.args.get("number")
-    print(number)
-    # return(str(number))
-    return redirect(url_for("square",number=number))
-@app.route("/square/<number>")
-def square(number):
-    number=int(number)**2
-    # return str(number)
-    return render_template("square.html",number=number)
+# @app.route("/sq/")
+# def handle():
+#     number=request.args.get("number")
+#     print(number)
+#     # return(str(number))
+#     return redirect(url_for("square",number=number))
+# @app.route("/square/<number>")
+# def square(number):
+#     number=int(number)**2
+#     # return str(number)
+#     return render_template("square.html",number=number)
+
+
+
+@app.route('/square/<int:number>')
+def square_number(number):
+    squared = number ** 2
+    return render_template('square.html', number=squared)
 
 
     
