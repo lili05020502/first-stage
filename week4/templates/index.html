@@ -42,7 +42,7 @@
         </form>
       </div>
       <hr/>
-      <div class="calculator">
+      <!-- <div class="calculator">
         <h3>計算正整數的平方</h3>
         <form action="/sq" id="square" novalidate class="form">
           <label for="number">正整數
@@ -50,17 +50,22 @@
           </label>
           <button id="number_button">計算</button>
         </form>
-      </div>
+      </div> -->
 
+      <div class="calculator">
+        <h3>計算正整數的平方</h3>正整數
+          <input type="text" name="number" id="number" >
+          <button onclick="calculateSquared()">計算</button>
+      </div>
 
     </div>
   </div>
   <script>
-    debugger;
+    
     const checkbox = document.querySelector("#checkbox");
     const sub_btn = document.querySelector("#submit");
-    const number = document.querySelector("#number");
-    const number_button = document.querySelector("#number_button");
+    // const number = document.querySelector("#number");
+    // const number_button = document.querySelector("#number_button");
 
     sub_btn.addEventListener("click", function (checkCheckbox) {
 
@@ -72,15 +77,27 @@
       return true; // 允許表單提交
     });
 
-    number_button.addEventListener("click", function (event) {
-        const inputValue = parseInt(number.value);
-
-        if (isNaN(inputValue) || inputValue <= 0) {
-            event.preventDefault();
-            alert("Please enter a positive number");
-        }
+    // number_button.addEventListener("click", function (event) {
+    //     const inputValue = parseInt(number.value);
+    //     debugger;
+    //     if (isNaN(inputValue) || inputValue <= 0) {
+    //         event.preventDefault();
+    //         alert("Please enter a positive number");
+    //     }
+    //     else {
+    //             window.location.href = `/square/${bumber}`;
+    //         }
         
-    });
+    // });
+    function calculateSquared() {
+            const userInput = document.getElementById("number").value;
+            if (isNaN(userInput) || userInput <= 0) {
+                alert("Please enter a positive number");
+            } else {
+                  window.location.href = `/square/${userInput}`;
+            }
+        }
+
   </script>
 </body>
 
