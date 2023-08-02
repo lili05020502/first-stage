@@ -1,4 +1,4 @@
-### 第二題
+### 第二題 建立資料庫和資料表
 ```CREATE DATABASE website;
 USE website;
 CREATE TABLE member(
@@ -13,7 +13,7 @@ CREATE TABLE member(
 
  ![image](https://github.com/lili05020502/first-stage/assets/127928553/9effd19f-0acb-44a7-a415-fbf2d1ba83c8)
 
-### 第三題
+### 第三題 SQL CRUD
 ```
 USE website;
 INSERT INTO member(name,username,password) VALUES('test','test','test');
@@ -34,7 +34,7 @@ UPDATE member SET name='test2' WHERE username='test';
 
 #SELECT *FROM website.member WHERE name='test2';
 ```
-#### 3-1
+#### 3-1 
 ![image](https://github.com/lili05020502/first-stage/assets/127928553/baa6f809-87d4-4cf5-884f-16dab5316cca)
 #### 3-2
 ![image](https://github.com/lili05020502/first-stage/assets/127928553/ba650076-735b-4872-a6b8-a9d5443bade7)
@@ -49,7 +49,7 @@ UPDATE member SET name='test2' WHERE username='test';
 #### 3-7
 ![image](https://github.com/lili05020502/first-stage/assets/127928553/67d2dfe1-945a-4297-aee8-74165a198158)
 
-### 第四題
+### 第四題 SQL Aggregate Functions
 ```
 ---4-1
 SELECT count(*) FROM member;
@@ -67,7 +67,7 @@ SELECT AVG(follower_count) AS average_followers FROM member;
 #### 4-3
 ![image](https://github.com/lili05020502/first-stage/assets/127928553/a08109cf-5743-4f1c-ac1e-a7d06a2446cf)
 
-### 第五題
+### 第五題 SQL JOIN
 ```
 -----建立新資料表message,外鍵對應 member 資料表中的 id
 CREATE TABLE message(
