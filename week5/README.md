@@ -72,13 +72,14 @@ SELECT AVG(follower_count) AS average_followers FROM member;
 -----建立新資料表message,外鍵對應 member 資料表中的 id
 CREATE TABLE message(
 	id BIGINT PRIMARY KEY AUTO_INCREMENT,
-	member_id BIGINT NOT NULL REFERENCES member(id),
+	member_id BIGINT NOT NULL,
 	content VARCHAR(255) NOT NULL,
 	like_count INT unsigned NOT NULL DEFAULT 0,
 	time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-
+-----外鍵對應 member 資料表中的 id
+ALTER TABLE message ADD FOREIGN KEY(member_id) REFERENCES member(id);
 
 ---建立留言
 INSERT INTO message (member_id,content,like_count)VALUES
@@ -107,19 +108,26 @@ SELECT member.name,message.content FROM member INNER JOIN message ON member.id=m
 SELECT member.username,AVG(message.like_count) AS average_like_count FROM member  JOIN message ON member.id=message.member_id WHERE member.username='test';
 
 ```
-#### 建立新資料表message,外鍵對應 member 資料表中的 id
-![image](https://github.com/lili05020502/first-stage/assets/127928553/8d988bc6-1c72-48be-a332-b6238e7f814d)
+#### 建立新資料表message
+![image](https://github.com/lili05020502/first-stage/assets/127928553/2f372622-cde7-401b-a32a-8b599c66bc79)
+
+####外鍵對應 member 資料表中的 id
+![image](https://github.com/lili05020502/first-stage/assets/127928553/a0da42d0-0298-4d2a-a4c4-8cc598f17725)
+
 
 #### 建立留言
-![image](https://github.com/lili05020502/first-stage/assets/127928553/ce66678b-3601-4128-84c6-0cbc69293118)
-![image](https://github.com/lili05020502/first-stage/assets/127928553/c6be9ace-9246-45eb-9cd5-d818f13f9e69)
+![image](https://github.com/lili05020502/first-stage/assets/127928553/5d0a950d-144b-4c69-b853-35d98c74d695)
+![image](https://github.com/lili05020502/first-stage/assets/127928553/fcbbe0c9-e58b-4b0a-935a-9b3e70f1e8b6)
 
 #### 5-1
-![image](https://github.com/lili05020502/first-stage/assets/127928553/51729354-14e7-40a5-8f52-b3493c7cf32b)
+![image](https://github.com/lili05020502/first-stage/assets/127928553/d846eb8f-453d-40a9-bf41-47585211c6a1)
+
 #### 5-2
-![image](https://github.com/lili05020502/first-stage/assets/127928553/4a91b7a4-5c35-46e2-8ee8-61ce098e5437)
+![image](https://github.com/lili05020502/first-stage/assets/127928553/167f96c8-c91b-439c-befa-5a64bc7f6d0d)
+
 #### 5-3
-![image](https://github.com/lili05020502/first-stage/assets/127928553/56406b09-d740-46fc-8130-bb7fadfd08fd)
+![image](https://github.com/lili05020502/first-stage/assets/127928553/90ac17a9-64d0-4c07-9c21-aa284838d59b)
+
 
 
 
